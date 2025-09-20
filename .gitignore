@@ -1,0 +1,36 @@
+# ========================
+# OS Files
+# ========================
+.DS_Store
+Thumbs.db
+
+# ========================
+# IDE / Editor
+# ========================
+*.iml
+.idea/
+.vscode/
+*.log
+
+# ========================
+# Build / Target folders
+# ========================
+**/target/
+**/build/
+
+# ========================
+# Environment / Secrets
+# ========================
+# Ignore your .env files in all microservices
+**/.env
+
+# Ignore specific environment-specific application configs
+**/application-dev.yml
+**/application-test.yml
+**/application-prod.yml
+
+# ========================
+# Temporary / Misc
+# ========================
+*.tmp
+*.swp
