@@ -26,7 +26,7 @@ public class InventoryServiceImpl implements InventoryService {
     public List<EventInventoryResponse> getAllEvents() {
         final List<Event> events = eventRepository.findAll();
         return events.stream()
-                .map(event -> new EventInventoryResponse(event.getName(),event.getLeftCapacity(),event.getVenue()))
+                .map(event -> new EventInventoryResponse(event.getId(),event.getName(),event.getLeftCapacity(),event.getVenue(),event.getTicketPrice()))
                 .toList();
     }
 
@@ -35,6 +35,15 @@ public class InventoryServiceImpl implements InventoryService {
         final Venue venue  = venueRepository.findById(venueId)
                 .orElseThrow(()-> new ResourceNotFoundException("Venue with id: "+venueId+" not found"));
         return new VenueInventoryResponse(venue.getId(),venue.getName(),venue.getTotalCapacity());
+    }
+
+    @Override
+    public EventInventoryResponse getEventById(Long id) {
+        final Event event = eventRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("Event with id: "+id+" not found"));
+
+
+        return new EventInventoryResponse(event.getId(),event.getName(),event.getLeftCapacity(),event.getVenue(),event.getTicketPrice());
     }
 
 

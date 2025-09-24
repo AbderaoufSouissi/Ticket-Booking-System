@@ -31,4 +31,12 @@ public class InventoryController {
         return new ResponseEntity<>(inventoryService.getVenueById(venueId), HttpStatus.OK);
 
     }
+
+    @GetMapping("/inventory/event/{id}")
+    public ResponseEntity<EventInventoryResponse> getEvent(@PathVariable Long id) {
+        return new ResponseEntity<>(inventoryService.getEventById(id), HttpStatus.OK);
+
+    }
+
+
 }
