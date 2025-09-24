@@ -3,6 +3,8 @@ package com.ars.inventory_service.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
+
 @Entity
 @Getter
 @Setter
@@ -20,6 +22,10 @@ public class Event {
     private int totalCapacity;
     @Column(name = "left_capacity", nullable = false)
     private int leftCapacity;
+
+    @Column(name = "ticket_price", nullable = false)
+    private BigDecimal ticketPrice;
+
     @ManyToOne
     @JoinColumn(name = "venue_id", nullable = false)
     private Venue venue;

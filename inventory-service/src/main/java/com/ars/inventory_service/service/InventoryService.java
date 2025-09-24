@@ -9,4 +9,5 @@ import java.util.List;
 public interface InventoryService {
     List<EventInventoryResponse> getAllEvents();
     VenueInventoryResponse getVenueById(Long venueId);
+    EventInventoryResponse getEventById(Long id);
 }
