@@ -2,5 +2,13 @@ package com.ars.inventory_service.response;
 
 import com.ars.inventory_service.entity.Venue;
 
-public record EventInventoryResponse(String event, int capacity, Venue venue) {
-}
+import java.math.BigDecimal;
+
+public record EventInventoryResponse(
+        Long eventId,
+        String event,
+        int capacity,
+        Venue venue,
+        BigDecimal ticketPrice
+)
+{}
